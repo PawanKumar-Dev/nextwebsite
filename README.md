@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## If your dynamic page not updating (e.g. movie page)
+
+Since movie page use api, it is counted as dynamic page. But when uploading this on vercel if don't add a line of code our page count as static page. Hence our api will not update data.
+
+export const dynamic = 'force-dynamic';
+export async function POST(request, response) {
+ ...
+}
+
+Check this StackOverflow for understanding: https://stackoverflow.com/questions/76356803/data-not-updating-when-deployed-nextjs13-app-on-vercel-despite-using-cache-no
